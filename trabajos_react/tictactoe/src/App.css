@@ -1,0 +1,58 @@
+body {
+  background-color: #222;
+  color: #0f0; /* Texto verde para un toque retro */
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.contenedor {
+  background-color: #333;
+  padding: 2em;
+  border: 2px solid #0f0;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.grupo-input {
+  margin-bottom: 1em;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+input[type="text"] {
+  background-color: #444;
+  color: #0f0;
+  border: 1px solid #0f0;
+  padding: 0.5em;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+button {
+  background-color: #0f0;
+  color: #222;
+  border: none;
+  padding: 1em 2em;
+  font-family: monospace;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0c0;
+}

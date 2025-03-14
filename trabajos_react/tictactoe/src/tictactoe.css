@@ -1,0 +1,88 @@
+body {
+    background-color: #222;
+    color: #0f0;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .contenedor-principal {
+    display: flex;
+    align-items: center;
+  }
+
+  .jugador-izquierdo,
+  .jugador-derecho {
+    display: inline;
+    flex-direction: column;
+    align-items: left;
+    margin: 0 20px; /* Espacio entre los jugadores y el tablero */
+  }
+
+  .imagen-jugador {
+    width: 50px; /* Ajusta el tamaño de la imagen */
+    height: 50px;
+    border-radius: 50px;
+    /* margin-bottom: 10px; Espacio entre la imagen y el nombre */
+  }
+
+  .nombre-jugador {
+    font-size: 1.5em; /* Ajusta el tamaño del nombre */
+  }
+
+  .contenedor {
+    background-color: #333;
+    padding: 2em;
+    border: 2px solid #0f0;
+    border-radius: 10px;
+    text-align: center;
+    width: 450px;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+
+  .tablero {
+    display: grid;
+    grid-template-columns: repeat(3, 130px);
+    grid-gap: 10px;
+    margin-bottom: 1em;
+  }
+
+  .celda {
+    background-color: #444;
+    border: 1px solid #0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+    min-height: 130px;
+    min-width: 130px;
+  }
+
+  .celda:hover {
+    background-color: #555;
+  }
+
+  .circulo {
+    color: blue;
+  }
+
+  .cruz {
+    color: red;
+  }
+
+  .notTurn {
+    opacity: 0;
+  }
+
+  .mensaje {
+    font-size: 1.2em;
+    margin-top: 1em;
+  }
