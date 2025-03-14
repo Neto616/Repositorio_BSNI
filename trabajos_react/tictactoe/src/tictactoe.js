@@ -1,8 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './tictactoe.css'
 
 function TicTacToe(props){
-    console.log(props)
+    const [turno, setTurno] = useState(1);
+    const [winner, setWinner] = useState(false);
+    const [gato, setGato] = useState([
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ]);
+
+    const click = (e, posicionX, posicionY, turno) => { 
+        if(gato[posicionX][posicionY] !== 0 || winner) return;
+        e.target.classList.add(turno === 1 ? 'circulo' : 'cruz');
+        e.target.textContent = turno === 1 ? 'O' : 'X';
+        setGato((gatoActual) => {
+            const nuevoGato = gatoActual.map((fila) => [...fila]);
+            nuevoGato[posicionX][posicionY] = turno;
+            winners(nuevoGato, turno)
+            return nuevoGato;
+        });
+        setTurno(turno === 1 ? 2 : 1);
+    }
+
+    const winners = (gato, turno) => {
+        console.log(gato)
+        if(gato[0][0] === turno && gato[0][1] === turno && gato[0][2] === turno) setWinner(true)
+        if(gato[1][0] === turno && gato[1][1] === turno && gato[1][2] === turno) setWinner(true)
+        if(gato[2][0] === turno && gato[2][1] === turno && gato[2][2] === turno) setWinner(true)
+        if(gato[0][0] === turno && gato[1][1] === turno && gato[2][2] === turno) setWinner(true)
+        if(gato[0][2] === turno && gato[1][1] === turno && gato[2][0] === turno) setWinner(true)
+    }
+
     return (
         <div className="contenedor-principal">
         <img
@@ -11,29 +40,29 @@ function TicTacToe(props){
             className="gif-lateral gif-izquierdo"
         />
         <div className="contenedor">
-          <div className="jugador-izquierdo" id="nombreJugador1">
-            <img src="tu_imagen_jugador1.png" className="imagen-jugador" />
+          <div className={turno === 1 ? ("jugador-izquierdo") : ("jugador-izquierdo notTurn")} id="nombreJugador1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjZ78tS3Eune2cjUljp6xdQq7pU3KHDXzZcA&s" className="imagen-jugador" />
             <span className="nombre-jugador">{props.jugador1}</span>
           </div>
   
-          <div className="jugador-derecho notTurn" id="nombreJugador2">
+          <div className={turno === 2 ? ("jugador-derecho") : ("jugador-derecho notTurn")} id="nombreJugador2">
             <span className="nombre-jugador">{props.jugador2}</span>
-            <img src="tu_imagen_jugador2.png" className="imagen-jugador" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYwZktB7fwgzZBSYr-QX9hWbtFqepS9DC_uQ&s" className="imagen-jugador" />
           </div>
           <h1>Tic Tac Toe Retro</h1>
-          <div class="tablero">
-            <div className="celda circulo" id="0">O</div>
-            <div className="celda cruz" id="1">X</div>
-            <div className="celda circulo" id="2">O</div>
-            <div className="celda circulo" id="3">O</div>
-            <div className="celda cruz" id="4">X</div>
-            <div className="celda cruz" id="5">X</div>
-            <div className="celda circulo" id="6">O</div>
-            <div className="celda cruz" id="7">X</div>
-            <div className="celda circulo" id="8">O</div>
+          <div className="tablero">
+            <div className="celda" id="0" onClick={(e) => click(e, 0, 0, turno)}></div>
+            <div className="celda" id="1" onClick={(e) => click(e, 0, 1, turno)}></div>
+            <div className="celda" id="2" onClick={(e) => click(e, 0, 2, turno)}></div>
+            <div className="celda" id="3" onClick={(e) => click(e, 1, 0, turno)}></div>
+            <div className="celda" id="4" onClick={(e) => click(e, 1, 1, turno)}></div>
+            <div className="celda" id="5" onClick={(e) => click(e, 1, 2, turno)}></div>
+            <div className="celda" id="6" onClick={(e) => click(e, 2, 0, turno)}></div>
+            <div className="celda" id="7" onClick={(e) => click(e, 2, 1, turno)}></div>
+            <div className="celda" id="8" onClick={(e) => click(e, 2, 2, turno)}></div>
           </div>
   
-          <div className="mensaje"></div>
+          <div className="mensaje">{winner ? "FELICIDADES AL GANADOR" : ""}</div>
         </div>
           <img
             src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/afedb0a4-4d1d-476f-9820-f77051e5a41c/d45mqil-de6920be-d5cc-4824-a634-cedba0e7d3ca.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2FmZWRiMGE0LTRkMWQtNDc2Zi05ODIwLWY3NzA1MWU1YTQxY1wvZDQ1bXFpbC1kZTY5MjBiZS1kNWNjLTQ4MjQtYTYzNC1jZWRiYTBlN2QzY2EuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.kMYDL3ustLyKYKxNXb1QQ2qDypwe1uHGRYFZHrA6vH8"

@@ -8,31 +8,33 @@ body {
     height: 100vh;
     margin: 0;
   }
-
+  
   .contenedor-principal {
     display: flex;
     align-items: center;
+    justify-content: center; /* Centra el contenido horizontalmente */
   }
-
+  
   .jugador-izquierdo,
   .jugador-derecho {
-    display: inline;
+    display: flex;
     flex-direction: column;
-    align-items: left;
-    margin: 0 20px; /* Espacio entre los jugadores y el tablero */
+    align-items: center;
+    margin: 0 20px;
   }
-
+  
   .imagen-jugador {
-    width: 50px; /* Ajusta el tamaño de la imagen */
+    width: 50px;
     height: 50px;
     border-radius: 50px;
-    /* margin-bottom: 10px; Espacio entre la imagen y el nombre */
+    margin-bottom: 5px;
   }
-
+  
   .nombre-jugador {
-    font-size: 1.5em; /* Ajusta el tamaño del nombre */
+    font-size: 1.5em;
+    text-align: center;
   }
-
+  
   .contenedor {
     background-color: #333;
     padding: 2em;
@@ -41,19 +43,19 @@ body {
     text-align: center;
     width: 450px;
   }
-
+  
   h1 {
     font-size: 2em;
     margin-bottom: 1em;
   }
-
+  
   .tablero {
     display: grid;
     grid-template-columns: repeat(3, 130px);
     grid-gap: 10px;
     margin-bottom: 1em;
   }
-
+  
   .celda {
     background-color: #444;
     border: 1px solid #0f0;
@@ -65,23 +67,23 @@ body {
     min-height: 130px;
     min-width: 130px;
   }
-
+  
   .celda:hover {
     background-color: #555;
   }
-
+  
   .circulo {
     color: blue;
   }
-
+  
   .cruz {
     color: red;
   }
-
+  
   .notTurn {
     opacity: 0;
   }
-
+  
   .mensaje {
     font-size: 1.2em;
     margin-top: 1em;
