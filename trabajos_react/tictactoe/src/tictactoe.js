@@ -28,6 +28,9 @@ function TicTacToe(props){
         if(gato[0][0] === turno && gato[0][1] === turno && gato[0][2] === turno) setWinner(true)
         if(gato[1][0] === turno && gato[1][1] === turno && gato[1][2] === turno) setWinner(true)
         if(gato[2][0] === turno && gato[2][1] === turno && gato[2][2] === turno) setWinner(true)
+        if(gato[0][0] === turno && gato[1][0] === turno && gato[2][0] === turno) setWinner(true)
+        if(gato[0][1] === turno && gato[1][1] === turno && gato[2][1] === turno) setWinner(true)
+        if(gato[0][2] === turno && gato[1][2] === turno && gato[2][2] === turno) setWinner(true)
         if(gato[0][0] === turno && gato[1][1] === turno && gato[2][2] === turno) setWinner(true)
         if(gato[0][2] === turno && gato[1][1] === turno && gato[2][0] === turno) setWinner(true)
     }
