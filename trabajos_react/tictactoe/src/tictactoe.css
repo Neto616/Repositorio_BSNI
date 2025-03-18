@@ -1,90 +1,90 @@
 body {
-    background-color: #222;
-    color: #0f0;
-    font-family: monospace;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  .contenedor-principal {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Centra el contenido horizontalmente */
-  }
-  
-  .jugador-izquierdo,
-  .jugador-derecho {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 20px;
-  }
-  
-  .imagen-jugador {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    margin-bottom: 5px;
-  }
-  
-  .nombre-jugador {
-    font-size: 1.5em;
-    text-align: center;
-  }
-  
-  .contenedor {
-    background-color: #333;
-    padding: 2em;
-    border: 2px solid #0f0;
-    border-radius: 10px;
-    text-align: center;
-    width: 450px;
-  }
-  
-  h1 {
-    font-size: 2em;
-    margin-bottom: 1em;
-  }
-  
-  .tablero {
-    display: grid;
-    grid-template-columns: repeat(3, 130px);
-    grid-gap: 10px;
-    margin-bottom: 1em;
-  }
-  
-  .celda {
-    background-color: #444;
-    border: 1px solid #0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5em;
-    cursor: pointer;
-    min-height: 130px;
-    min-width: 130px;
-  }
-  
-  .celda:hover {
-    background-color: #555;
-  }
-  
-  .circulo {
-    color: blue;
-  }
-  
-  .cruz {
-    color: red;
-  }
-  
-  .notTurn {
-    opacity: 0;
-  }
-  
-  .mensaje {
-    font-size: 1.2em;
-    margin-top: 1em;
-  }
+  background-color: #222; /* Fondo oscuro (casi negro) */
+  color: #0f0; /* Texto verde para un estilo retro */
+  font-family: monospace; /* Fuente de ancho fijo, estilo terminal */
+  display: flex; /* Usa flexbox para el layout */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  height: 100vh; /* Altura del body al 100% de la ventana */
+  margin: 0; /* Elimina los márgenes predeterminados del body */
+}
+
+.contenedor-principal {
+  display: flex; /* Usa flexbox para el contenedor principal */
+  align-items: center; /* Centra los elementos verticalmente */
+  justify-content: center; /* Centra el contenido horizontalmente */
+}
+
+.jugador-izquierdo,
+.jugador-derecho {
+  display: flex; /* Usa flexbox para los contenedores de jugadores */
+  flex-direction: column; /* Organiza los elementos en columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+  margin: 0 20px; /* Margen horizontal para separar los jugadores */
+}
+
+.imagen-jugador {
+  width: 50px; /* Ancho de la imagen del jugador */
+  height: 50px; /* Alto de la imagen del jugador */
+  border-radius: 50px; /* Hace que la imagen sea redonda */
+  margin-bottom: 5px; /* Margen inferior para separar la imagen del nombre */
+}
+
+.nombre-jugador {
+  font-size: 1.5em; /* Tamaño de la fuente del nombre del jugador */
+  text-align: center; /* Centra el texto del nombre */
+}
+
+.contenedor {
+  background-color: #333; /* Fondo gris oscuro para el contenedor del juego */
+  padding: 2em; /* Espacio interno alrededor del contenido del contenedor */
+  border: 2px solid #0f0; /* Borde verde */
+  border-radius: 10px; /* Bordes redondeados */
+  text-align: center; /* Centra el texto dentro del contenedor */
+  width: 450px; /* Ancho fijo del contenedor */
+}
+
+h1 {
+  font-size: 2em; /* Tamaño de la fuente del título */
+  margin-bottom: 1em; /* Margen inferior para separar el título del tablero */
+}
+
+.tablero {
+  display: grid; /* Usa grid layout para el tablero */
+  grid-template-columns: repeat(3, 130px); /* Crea 3 columnas de 130px */
+  grid-gap: 10px; /* Espacio entre las celdas */
+  margin-bottom: 1em; /* Margen inferior para separar el tablero del mensaje */
+}
+
+.celda {
+  background-color: #444; /* Fondo gris más claro para las celdas */
+  border: 1px solid #0f0; /* Borde verde */
+  display: flex; /* Usa flexbox para centrar el contenido de la celda */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  font-size: 2.5em; /* Tamaño de la fuente del símbolo (X o O) */
+  cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
+  min-height: 130px; /* Altura mínima de la celda */
+  min-width: 130px; /* Ancho mínimo de la celda */
+}
+
+.celda:hover {
+  background-color: #555; /* Cambia el fondo al pasar el ratón */
+}
+
+.circulo {
+  color: blue; /* Color del símbolo del círculo */
+}
+
+.cruz {
+  color: red; /* Color del símbolo de la cruz */
+}
+
+.notTurn {
+  opacity: 0; /* Oculta los contenedores de los jugadores cuando no es su turno */
+}
+
+.mensaje {
+  font-size: 1.2em; /* Tamaño de la fuente del mensaje de ganador */
+  margin-top: 1em; /* Margen superior para separar el mensaje del tablero */
+}

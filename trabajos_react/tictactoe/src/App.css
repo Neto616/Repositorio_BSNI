@@ -1,58 +1,59 @@
+/* Planteamos como será el diseño de nuestra pantalla principal */
 body {
-  background-color: #222;
+  background-color: #222; /* Fondo oscuro (casi negro) */
   color: #0f0; /* Texto verde para un toque retro */
-  font-family: monospace;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+  font-family: monospace; /* Fuente de ancho fijo (estilo terminal) */
+  display: flex; /* Usa flexbox para el layout */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  height: 100vh; /* Establece la altura al 100% de la ventana */
+  margin: 0; /* Elimina márgenes predeterminados del body */
 }
 
 .contenedor {
-  background-color: #333;
-  padding: 2em;
-  border: 2px solid #0f0;
-  border-radius: 10px;
-  text-align: center;
-  width: 300px;
+  background-color: #333; /* Fondo gris oscuro para el contenedor */
+  padding: 2em; /* Espacio interno alrededor del contenido */
+  border: 2px solid #0f0; /* Borde verde */
+  border-radius: 10px; /* Bordes redondeados */
+  text-align: center; /* Centra el texto dentro del contenedor */
+  width: 300px; /* Ancho fijo del contenedor */
 }
 
 h1 {
-  font-size: 2em;
-  margin-bottom: 1em;
+  font-size: 2em; /* Tamaño de la fuente para el encabezado */
+  margin-bottom: 1em; /* Margen inferior para separar del siguiente elemento */
 }
 
 .grupo-input {
-  margin-bottom: 1em;
-  text-align: left;
+  margin-bottom: 1em; /* Margen inferior para separar los grupos de input */
+  text-align: left; /* Alinea el texto a la izquierda dentro del grupo de input */
 }
 
 label {
-  display: block;
-  margin-bottom: 0.5em;
+  display: block; /* Muestra la etiqueta como un bloque (ocupa toda la línea) */
+  margin-bottom: 0.5em; /* Margen inferior para separar de la entrada */
 }
 
 input[type="text"] {
-  background-color: #444;
-  color: #0f0;
-  border: 1px solid #0f0;
-  padding: 0.5em;
-  width: 100%;
-  box-sizing: border-box;
-  font-family: monospace;
+  background-color: #444; /* Fondo gris más claro para la entrada de texto */
+  color: #0f0; /* Texto verde */
+  border: 1px solid #0f0; /* Borde verde */
+  padding: 0.5em; /* Espacio interno alrededor del texto en la entrada */
+  width: 100%; /* Ancho al 100% del contenedor padre */
+  box-sizing: border-box; /* Incluye el borde y el padding en el ancho total */
+  font-family: monospace; /* Fuente de ancho fijo */
 }
 
 button {
-  background-color: #0f0;
-  color: #222;
-  border: none;
-  padding: 1em 2em;
-  font-family: monospace;
-  cursor: pointer;
-  border-radius: 5px;
+  background-color: #0f0; /* Fondo verde para el botón */
+  color: #222; /* Texto casi negro */
+  border: none; /* Sin borde */
+  padding: 1em 2em; /* Espacio interno para el botón */
+  font-family: monospace; /* Fuente de ancho fijo */
+  cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
+  border-radius: 5px; /* Bordes redondeados */
 }
 
 button:hover {
-  background-color: #0c0;
+  background-color: #0c0; /* Cambia el fondo a un verde más oscuro al pasar el ratón */
 }
