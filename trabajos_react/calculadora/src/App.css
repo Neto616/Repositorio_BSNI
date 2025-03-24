@@ -24,6 +24,9 @@ body {
   font-size: 2rem;
   border-radius: 10px;
   margin-bottom: 15px;
+  height: 60px;
+  overflow-y: auto;
+  white-space: nowrap;
 }
 
 .buttons {
