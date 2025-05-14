@@ -1,9 +1,16 @@
+<!-- HTML que nos dara una tabla con el nombre y la edad de cada uno de los usuarios puestos en la base de datos -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tabla de Usuarios</title>
+    <!-- Genreamos el estilo que tendra la vista 
+    Establecemos el color del fondo y centramos nuestro contenido al medio
+    Para las tabla establece su ancho su sombra, color de fondo y demas (Todas las etiquetas <table></table> tendran el diseño)
+    Para los th y td les damos su espaciado, su alineacion del texto y el borde que tengan en la parte inferior
+    los th tambien tendran un color de fondo azul
+    -->
     <style>
       body {
         background-color: #f0f2f5;
@@ -52,27 +59,38 @@
     </table>
 
     <script>
+      // La funcion se va a ejecutar una vez el navegador termine de cargar los archivos estaticos
       window.onload = () => {
+        // Realizamos un fetch que nos permite realizar una peticion al servidor creado en Python
         fetch("/usuarios_info")
+          // Al ser una promesa hacemos uso de la funcion then para poder continuar obtenemos la repsuesta y la convertimos en un JSON
           .then((response) => response.json())
+          // Despues recibimos el response que seteamos en la aprte superior
           .then((response) => {
+            // accedemos a la tabla y sobre todo al tbody que tiene la tabla
             const tabla = document
               .getElementById("miTabla")
               .getElementsByTagName("tbody")[0];
+            // Iteramos en cada uno de los elementos de nuestra repsuesta
             for (const element of response) {
+              //Creamos una fila
               const fila = document.createElement("tr");
-
+              //y creamos una columna para esa fila
               const celdaNombre = document.createElement("td");
+              //La inicializamos con el valor de la posicion actual
               celdaNombre.textContent = element.nombre;
-
+              //Creamos otra columna
               const celdaEdad = document.createElement("td");
+              //La inicializamos con la edad del elemento actual
               celdaEdad.textContent = element.edad;
-
+              //Añadimos cada uno de nuestros nuevos datos a la fila
               fila.appendChild(celdaNombre);
               fila.appendChild(celdaEdad);
+              //Por ultimo añadimos la fila a nuestra tabla
               tabla.appendChild(fila);
             }
           })
+          // En caso de algun error unicamente imprimira el error en pantalla
           .catch((err) => console.log(err));
       };
     </script>

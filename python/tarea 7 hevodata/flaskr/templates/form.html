@@ -1,9 +1,11 @@
+<!-- Vista con un formulario para la creacion de datos unicamente se solicita nombre y edad  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulario Papu</title>
+    <title>Formulario</title>
+    <!-- Generamos el estilo que tendra el sitio unicamente brindando estilos especificos a las cosas que tenga el html -->
     <style>
       body {
         margin: 0;
@@ -55,32 +57,45 @@
     </style>
   </head>
   <body>
+    <!-- Tenemos un formulario con una funcion onsubmit que habla a otra funcion esto es para cuando le den al boton de enviar
+     o al enter la respuesta llame a la funcion sendForm -->
     <form id="loginForm" onsubmit="sendForm(event)">
+      <!-- Generamos nuestro campo nombre -->
       <label for="name">Nombre:</label>
       <input type="text" id="name" name="name" />
-
+      <!-- Nuestro campo edad -->
       <label for="age">Edad:</label>
       <input type="text" id="age" name="age" />
-
+      <!-- Y nuestro boton de tipo submit para el envio apropiado de resuesta -->
       <button type="submit">Enviar</button>
     </form>
   </body>
 
   <script>
+    // Creamos una funcion que recibe un evento como parametro
     function sendForm(event) {
+      // Los formularios te reenvian a otras partes entonces con el preventDefault evitamos que nos redireecione a otra parte
       event.preventDefault();
+      // Obtenemos los datos de nuestro formulario con el formData
       let form = new FormData(document.getElementById("loginForm"));
-
+      // Realizamos un fetch al servidor local sobre todo al endpoint login para enviar los datos
+      // Especificamos que el metodo es de tipo POST
+      // En el body enviamos la variable de tipo formData para nuestro servidor
       fetch("http://localhost:5000/login", {
         method: "POST",
         body: form,
       })
         .then((response) => {
+          // Verificamos que nuestro servidor haya respondido de manera correcta
           if (response.ok) {
+            // En caso de hacerlo reseteamos el formulario y enviamos una alerta de que salio bien
             event.target.reset();
             alert("Se guardo el usuario de manera correcta");
-          } else alert("Intente de nuevo");
+          }
+          // En caos contrario mandamos una alerta distinta
+          else alert("Intente de nuevo");
         })
+        // EN caso de algun error mostraremos la existencia de algun error;
         .catch((err) => {
           console.log(err);
           alert("Ha sucedido un error");
