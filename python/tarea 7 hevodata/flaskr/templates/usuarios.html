@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabla de Usuarios</title>
+    <style>
+      body {
+        background-color: #f0f2f5;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        padding-top: 50px;
+      }
+
+      table {
+        width: 60%;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      th,
+      td {
+        padding: 15px 20px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #4a69bd;
+        color: white;
+        font-weight: bold;
+      }
+
+      tr:hover {
+        background-color: #f1f1f1;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="miTabla">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      window.onload = () => {
+        fetch("/usuarios_info")
+          .then((response) => response.json())
+          .then((response) => {
+            const tabla = document
+              .getElementById("miTabla")
+              .getElementsByTagName("tbody")[0];
+            for (const element of response) {
+              const fila = document.createElement("tr");
+
+              const celdaNombre = document.createElement("td");
+              celdaNombre.textContent = element.nombre;
+
+              const celdaEdad = document.createElement("td");
+              celdaEdad.textContent = element.edad;
+
+              fila.appendChild(celdaNombre);
+              fila.appendChild(celdaEdad);
+              tabla.appendChild(fila);
+            }
+          })
+          .catch((err) => console.log(err));
+      };
+    </script>
+  </body>
+</html>

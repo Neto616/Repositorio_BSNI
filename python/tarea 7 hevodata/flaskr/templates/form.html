@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario Papu</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background-color: #1e1e2f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+      }
+
+      form {
+        background-color: #ffffff;
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        min-width: 300px;
+      }
+
+      label {
+        font-weight: bold;
+        color: #333;
+      }
+
+      input {
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+
+      button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="loginForm" onsubmit="sendForm(event)">
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="name" />
+
+      <label for="age">Edad:</label>
+      <input type="text" id="age" name="age" />
+
+      <button type="submit">Enviar</button>
+    </form>
+  </body>
+
+  <script>
+    function sendForm(event) {
+      event.preventDefault();
+      let form = new FormData(document.getElementById("loginForm"));
+
+      fetch("http://localhost:5000/login", {
+        method: "POST",
+        body: form,
+      })
+        .then((response) => {
+          if (response.ok) {
+            event.target.reset();
+            alert("Se guardo el usuario de manera correcta");
+          } else alert("Intente de nuevo");
+        })
+        .catch((err) => {
+          console.log(err);
+          alert("Ha sucedido un error");
+        });
+    }
+  </script>
+</html>
