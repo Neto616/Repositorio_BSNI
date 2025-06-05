@@ -1,0 +1,91 @@
+/* Estilo general de la página */
+body {
+  font-family: 'Segoe UI', sans-serif; /* Fuente moderna y legible */
+  margin: 0;      /* Quitar margen por defecto del body */
+  padding: 0;     /* Quitar padding por defecto */
+  background-color: #f8f9fa; /* Fondo claro para buena legibilidad */
+}
+
+/* Contenedor principal del navbar */
+.navbar {
+  background-color: #007BFF; /* Color azul principal */
+  padding: 10px 0;           /* Espaciado arriba y abajo */
+  text-align: center;        /* Centrar el menú horizontalmente */
+}
+
+/* Lista principal del menú */
+.menu {
+  list-style: none;  /* Quitar viñetas de lista */
+  margin: 0;         /* Eliminar margen por defecto */
+  padding: 0;        /* Eliminar padding por defecto */
+}
+
+/* Cada elemento principal del menú */
+.menu > li {
+  display: inline-block; /* Mostrar elementos en línea horizontal */
+  position: relative;    /* Necesario para posicionar el dropdown relativo a este ítem */
+}
+
+/* Estilo de los enlaces principales */
+.menu > li > a {
+  text-decoration: none;     /* Sin subrayado */
+  color: white;              /* Texto blanco */
+  padding: 12px 20px;        /* Espaciado interno para área clicable cómoda */
+  display: inline-block;     /* Permite aplicar padding y otras propiedades */
+  transition: background 0.3s; /* Transición suave al cambiar fondo */
+}
+
+/* Efecto hover sobre los enlaces principales */
+.menu > li > a:hover {
+  background-color: #0056b3; /* Cambio a azul más oscuro al pasar mouse */
+}
+
+/* Submenú oculto por defecto */
+.submenu {
+  display: none;            /* No mostrar inicialmente */
+  position: absolute;       /* Posicionamiento absoluto para dropdown */
+  top: 100%;                /* Ubicar justo debajo del menú padre */
+  left: 0;                  /* Alineado a la izquierda del padre */
+  background-color: white;  /* Fondo blanco para contraste */
+  min-width: 180px;         /* Ancho mínimo para los ítems */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra para dar profundidad */
+  z-index: 1000;            /* Prioridad en la capa visual para que esté encima */
+}
+
+/* Estilo para cada enlace dentro del submenú */
+.submenu li a {
+  display: block;           /* Ocupa todo el ancho del contenedor */
+  padding: 10px 15px;       /* Espaciado interno para clic cómodo */
+  color: #333;              /* Texto oscuro para legibilidad */
+  text-decoration: none;    /* Sin subrayado */
+  transition: background 0.3s; /* Transición suave al cambiar fondo */
+}
+
+/* Hover en los enlaces del submenú */
+.submenu li a:hover {
+  background-color: #f0f0f0; /* Fondo gris claro al pasar mouse */
+}
+
+/* Mostrar el submenú al pasar mouse sobre el elemento padre */
+.dropdown:hover .submenu {
+  display: block;           /* Cambia a visible */
+}
+
+/* Agregar una flecha al lado derecho de los ítems con dropdown */
+.dropdown > a::after {
+  content: " ▼";            /* Flecha hacia abajo */
+  font-size: 0.8em;         /* Tamaño un poco más pequeño */
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .menu > li {
+    display: block;         /* Mostrar en bloque (vertical) */
+    text-align: left;       /* Alinear texto a la izquierda */
+  }
+
+  .submenu {
+    position: static;       /* Posición estática para flujo natural */
+    box-shadow: none;       /* Sin sombra para evitar saturación */
+  }
+}

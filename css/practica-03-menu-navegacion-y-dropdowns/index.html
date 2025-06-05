@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menú con Dropdown Funcional</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="Menú principal">
+  <ul class="menu">
+    <li><a href="#">Inicio</a></li>
+    <li class="dropdown">
+      <!-- El link con dropdown -->
+      <a href="#" aria-haspopup="true" aria-expanded="false">Servicios</a>
+      <!-- Submenú -->
+      <ul class="submenu" aria-label="Submenú Servicios">
+        <li><a href="#">Diseño Web</a></li>
+        <li><a href="#">Marketing</a></li>
+        <li><a href="#">Soporte Técnico</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Contacto</a></li>
+  </ul>
+</nav>
+
+</body>
+</html>

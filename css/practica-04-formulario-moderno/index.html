@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulario Moderno</title>
+
+  <!-- Enlace al archivo de estilos externo -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Formulario principal -->
+  <form class="formulario">
+    <h2>Formulario de Contacto</h2>
+
+    <!-- Campo: Nombre con ícono tooltip (muestra información al pasar el cursor) -->
+    <label for="nombre">
+      Nombre 
+      <!-- Ícono con tooltip usando el atributo title -->
+      <img src="https://cdn-icons-png.flaticon.com/512/545/545705.png" alt="info" class="icono-tooltip" title="Tu nombre completo">
+    </label>
+    <input type="text" id="nombre" placeholder="Escribe tu nombre" required>
+
+    <!-- Campo: Correo -->
+    <label for="correo">Correo Electrónico</label>
+    <input type="email" id="correo" placeholder="ejemplo@correo.com" required>
+
+    <!-- Campo: Mensaje -->
+    <label for="mensaje">Mensaje</label>
+    <textarea id="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
+
+    <!-- Botón de envío -->
+    <button type="submit">Enviar</button>
+  </form>
+
+</body>
+</html>

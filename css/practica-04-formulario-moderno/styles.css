@@ -1,0 +1,97 @@
+/* variantes globales para reutilizar colores y valores */
+:root {
+  --color-principal: #4a90e2;         /* Azul principal para botones y título */
+  --color-fondo: #f8f8f8;             /* Fondo suave del body */
+  --color-borde: #ccc;                /* Color neutro para bordes */
+  --color-texto: #333;                /* Color principal de texto */
+  --radio: 8px;                       /* Radio de bordes redondeados */
+}
+
+/* configuracion general del body */
+body {
+  font-family: 'Segoe UI', sans-serif;       /* Fuente amigable y moderna */
+  background-color: var(--color-fondo);      /* Aplica el color de fondo */
+  margin: 0;
+  padding: 20px;
+  display: flex;                             /* Usamos flexbox para centrar */
+  justify-content: center;                  /* Centrado horizontal */
+  align-items: flex-start;                  /* Alineado arriba */
+  min-height: 100vh;                         /* Altura mínima pantalla completa */
+}
+
+/* contenedor principal del formulario */
+.formulario {
+  background: white;                         /* Fondo blanco para contraste */
+  padding: 2rem;                             /* Espaciado interno generoso */
+  border-radius: var(--radio);              /* Bordes redondeados */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  width: 100%;                               /* Ocupa todo el ancho disponible */
+  max-width: 500px;                          /* Limita el ancho máximo */
+  box-sizing: border-box;                    /* Incluye padding y border en el tamaño */
+}
+
+/* titulo del formulario */
+.formulario h2 {
+  color: var(--color-principal);            /* Color azul principal */
+  text-align: center;                        /* Centrado */
+  margin-bottom: 1.5rem;                     /* Espacio debajo del título */
+  text-shadow: 1px 1px 2px #ccc;             /* Sombra sutil para resaltar */
+}
+
+/* etiquetas de los camps */
+.formulario label {
+  display: block;                            /* Que cada etiqueta sea de línea completa */
+  font-weight: bold;                         /* Texto en negrita */
+  margin-top: 1rem;                          /* Espacio hacia arriba */
+  margin-bottom: 0.4rem;                     /* Espacio hacia el input */
+  color: var(--color-texto);                 /* Color oscuro del texto */
+}
+
+/* inputs y textsAreas */
+.formulario input,
+.formulario textarea {
+  width: 100%;                               /* Que ocupen todo el contenedor */
+  padding: 0.75rem;                          /* Espaciado interno amplio */
+  font-size: 1rem;                           /* Tamaño de fuente legible */
+  border: 1px solid var(--color-borde);      /* Borde gris claro */
+  border-radius: var(--radio);              /* Bordes redondeados */
+  box-sizing: border-box;                    /* Incluye padding y borde en el ancho */
+  transition: border-color 0.3s, box-shadow 0.3s;  /* Transiciones suaves */
+}
+
+/* efecto al hacer focus (clic o tabular) */
+.formulario input:focus,
+.formulario textarea:focus {
+  outline: none;                             /* Quita el borde azul default */
+  border-color: var(--color-principal);      /* Resalta con color principal */
+  box-shadow: 0 0 4px var(--color-principal);/* Brillo sutil */
+}
+
+/* boton envio */
+.formulario button {
+  margin-top: 1.5rem;                        /* Separación respecto al textarea */
+  padding: 0.75rem 1.5rem;                   /* Espaciado interno cómodo */
+  background-color: var(--color-principal);  /* Color azul del botón */
+  color: white;                              /* Texto blanco */
+  border: none;                              /* Sin borde */
+  border-radius: var(--radio);              /* Bordes redondeados */
+  cursor: pointer;                           /* Cursor tipo mano */
+  font-size: 1rem;
+  transition: background-color 0.3s;         /* Cambio de color al pasar cursor */
+}
+
+/* efecto hover del boton */
+.formulario button:hover {
+  background-color: #357ac9;                 /* Un azul más oscuro */
+}
+
+/* 
+  icono de tooltip
+*/
+.icono-tooltip {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-left: 5px;
+  cursor: help;
+}
