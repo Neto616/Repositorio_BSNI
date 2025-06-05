@@ -1,0 +1,215 @@
+/* styles.css */
+
+/* Reset básico para eliminar márgenes y paddings por defecto, y establecer box-sizing para incluir padding y border en el tamaño total */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos base para el body: fuente legible, color de fondo suave, color de texto oscuro y altura completa de ventana */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+  line-height: 1.6; /* Espaciado cómodo entre líneas */
+  height: 100vh; /* Altura completa de la ventana */
+}
+
+/* Contenedor principal con Grid Layout para organizar todo el dashboard */
+.dashboard {
+  display: grid;
+  /* Definición de áreas para el grid: header arriba, sidebar a la izquierda, main en medio, widgets a la derecha y footer abajo */
+  grid-template-areas:
+    "header header header"
+    "sidebar main widgets"
+    "footer footer footer";
+  /* Columnas: sidebar fija 220px, main toma todo el espacio disponible, widgets fijo 280px */
+  grid-template-columns: 220px 1fr 280px;
+  /* Filas: header 70px, contenido principal flexible, footer 50px */
+  grid-template-rows: 70px 1fr 50px;
+  height: 100vh; /* Altura total de la ventana */
+  gap: 15px; /* Espacio entre celdas del grid */
+  padding: 15px; /* Espacio interno alrededor del grid */
+}
+
+/* Área de encabezado */
+.header {
+  grid-area: header; /* Ubicación en el grid */
+  background-color: #2c3e50; /* Fondo oscuro */
+  color: white; /* Texto blanco */
+  padding: 1.5rem; /* Espacio interno */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Sidebar o barra lateral */
+.sidebar {
+  grid-area: sidebar;
+  background-color: #1b2631; /* Fondo más oscuro */
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave para dar profundidad */
+}
+
+/* Título dentro del sidebar */
+.sidebar h2 {
+  margin-bottom: 15px; /* Separación inferior */
+  font-weight: 700; /* Negrita fuerte */
+  font-size: 1.3rem; /* Tamaño ligeramente grande */
+  letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+/* Lista sin viñetas dentro del sidebar */
+.sidebar ul {
+  list-style: none;
+}
+
+/* Items de la lista del sidebar */
+.sidebar ul li {
+  padding: 12px 10px; /* Espacio alrededor del texto */
+  cursor: pointer; /* Indica que es clickable */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s ease; /* Transición suave para hover */
+}
+
+/* Efecto al pasar el mouse sobre un item del sidebar */
+.sidebar ul li:hover {
+  background-color: #2980b9; /* Cambio de color azul */
+}
+
+/* Área principal del dashboard */
+.main {
+  grid-area: main;
+  background-color: white; /* Fondo blanco */
+  padding: 20px 30px; /* Espaciado interno */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra ligera */
+  display: flex; /* Flexbox para ordenar contenido */
+  flex-direction: column; /* Columna vertical */
+  gap: 20px; /* Espacio entre elementos hijos */
+}
+
+/* Título dentro del main */
+.main h2 {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #2e4053; /* Color azul grisáceo */
+}
+
+/* Contenedor de tarjetas resumen con flexbox */
+.tarjetas {
+  display: flex;
+  gap: 20px; /* Espacio entre tarjetas */
+  justify-content: space-between; /* Distribuye tarjetas con espacio entre ellas */
+}
+
+/* Estilo individual de cada tarjeta */
+.tarjeta {
+  background-color: #2980b9; /* Fondo azul */
+  color: white;
+  flex: 1; /* Cada tarjeta ocupa igual espacio */
+  padding: 25px 20px; /* Espacio interno */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(41, 128, 185, 0.5); /* Sombra azul semitransparente */
+  text-align: center; /* Texto centrado */
+  transition: background-color 0.3s ease; /* Transición para hover */
+  cursor: default; /* Cursor por defecto */
+}
+
+/* Cambio de color de fondo al pasar el mouse */
+.tarjeta:hover {
+  background-color: #3498db;
+}
+
+/* Título dentro de la tarjeta */
+.tarjeta h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Texto principal dentro de la tarjeta */
+.tarjeta p {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Sección para el gráfico */
+.grafico {
+  background-color: #fff; /* Fondo blanco */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  flex-grow: 1; /* Crece para ocupar espacio disponible */
+}
+
+/* Título del gráfico */
+.grafico h3 {
+  margin-bottom: 15px;
+  color: #34495e; /* Color gris oscuro */
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+/* Contenedor de widgets (panel derecho) */
+.widgets {
+  grid-area: widgets;
+  background-color: white;
+  padding: 20px 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espacio entre widgets */
+}
+
+/* Título en widgets */
+.widgets h2 {
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+/* Estilo individual para cada widget */
+.widget {
+  background-color: #f7f9fa; /* Fondo claro */
+  padding: 12px 15px;
+  border-left: 5px solid #e67e22; /* Barra naranja a la izquierda */
+  border-radius: 5px;
+  font-size: 0.95rem;
+  color: #34495e;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Sombra muy sutil */
+}
+
+/* Pie de página */
+.footer {
+  grid-area: footer;
+  text-align: center;
+  padding: 1rem;
+  background-color: #2c3e50;
+  color: white;
+  border-radius: 8px;
+}
+
+/* Responsividad para pantallas menores a 900px */
+@media (max-width: 900px) {
+  .dashboard {
+    /* Cambio a un grid de una sola columna */
+    grid-template-areas:
+      "header"
+      "main"
+      "widgets"
+      "sidebar"
+      "footer";
+    grid-template-columns: 1fr; /* Una columna que ocupa todo */
+    grid-template-rows: auto; /* Altura automática */
+    height: auto; /* Altura automática para no limitar */
+    gap: 10px; /* Menor espacio entre áreas */
+  }
+  /* Reordenar visualmente el sidebar al final */
+  .sidebar {
+    order: 4;
+  }
+}

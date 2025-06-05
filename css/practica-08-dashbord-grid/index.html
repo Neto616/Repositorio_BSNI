@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard CSS Grid con Gráficos</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Importamos Chart.js desde CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <header class="header">
+      <h1>Panel de Administración</h1>
+    </header>
+
+    <nav class="sidebar">
+      <h2>Menú</h2>
+      <ul>
+        <li>Inicio</li>
+        <li>Usuarios</li>
+        <li>Estadísticas</li>
+        <li>Configuración</li>
+      </ul>
+    </nav>
+
+    <main class="main">
+      <h2>Resumen</h2>
+      <div class="tarjetas">
+        <div class="tarjeta">
+          <h3>Usuarios</h3>
+          <p>1,024</p>
+        </div>
+        <div class="tarjeta">
+          <h3>Ventas</h3>
+          <p>$8,450</p>
+        </div>
+        <div class="tarjeta">
+          <h3>Tickets</h3>
+          <p>231</p>
+        </div>
+      </div>
+
+      <section class="grafico">
+        <h3>Visitas del mes</h3>
+        <!-- Canvas para el gráfico -->
+        <canvas id="visitasChart" width="400" height="250"></canvas>
+      </section>
+    </main>
+
+    <aside class="widgets">
+      <h2>Alertas</h2>
+      <div class="widget">⚠️ Sistema necesita actualización</div>
+      <div class="widget">✅ Copia de seguridad realizada</div>
+    </aside>
+
+    <footer class="footer">
+      <p>&copy; 2025 Dashboard Inc. Todos los derechos reservados.</p>
+    </footer>
+  </div>
+
+  <!-- Script para crear el gráfico con Chart.js -->
+  <script>
+    const ctx = document.getElementById('visitasChart').getContext('2d');
+    const visitasChart = new Chart(ctx, {
+      type: 'line', // tipo de gráfico
+      data: {
+        labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        datasets: [{
+          label: 'Visitas',
+          data: [120, 190, 150, 220, 300, 250, 320, 280, 310, 400, 450, 480],
+          backgroundColor: 'rgba(46, 134, 222, 0.2)',
+          borderColor: 'rgba(46, 134, 222, 1)',
+          borderWidth: 3,
+          fill: true,
+          tension: 0.3, // suavizado de líneas
+          pointRadius: 5,
+          pointBackgroundColor: 'rgba(46, 134, 222, 1)'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              font: {
+                size: 14
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 50
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

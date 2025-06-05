@@ -1,0 +1,83 @@
+/* Fuente y estilo general del cuerpo */
+body {
+  font-family: Arial, sans-serif;
+  margin: 2rem;
+  background: #f4f4f4;
+  color: #333;
+}
+
+/* Estilo general de la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de celdas (th y td) */
+th,
+td {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+/* Estilo para la cabecera de la tabla */
+thead {
+  background: #004080;
+  color: white;
+}
+
+/* Estilo para el pie de la tabla */
+tfoot {
+  background: #eaeaea;
+  font-style: italic;
+}
+
+/* Reinicia el contador al inicio del cuerpo de la tabla */
+.contador-filas {
+  counter-reset: fila;
+}
+
+/* Aplica el contador automático en la primera celda de cada fila */
+.contador-filas tr td:first-child::before {
+  counter-increment: fila;
+  content: counter(fila) ". ";
+  font-weight: bold;
+  color: #004080;
+}
+
+/* Estilos para la paginación */
+.paginacion {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Estilo base de los enlaces de paginación */
+.paginacion a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  border: 1px solid #004080;
+  color: #004080;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Estilo para el enlace activo o al pasar el mouse */
+.paginacion a.activo,
+.paginacion a:hover {
+  background: #004080;
+  color: white;
+}
+
+/* Sección de texto en columnas múltiples */
+.texto-multicolumna {
+  column-count: 2;
+  column-gap: 2rem;
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}

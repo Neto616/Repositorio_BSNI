@@ -1,0 +1,203 @@
+/* Reset básico para quitar márgenes y paddings por defecto, y usar box-sizing border-box para facilitar el manejo de tamaños */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos generales del body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y legible */
+  background: linear-gradient(120deg, #e0eafc, #cfdef3); /* Fondo degradado suave */
+  color: #222; /* Color de texto oscuro */
+  line-height: 1.5; /* Altura de línea cómoda para lectura */
+  min-height: 100vh; /* Alto mínimo de pantalla completa */
+  display: flex;
+  flex-direction: column; /* Layout vertical */
+  padding: 20px; /* Espaciado interior */
+}
+
+/* Estilo para el encabezado */
+.header {
+  text-align: center; /* Centrar texto */
+  margin-bottom: 30px; /* Separación inferior */
+}
+
+/* Título principal */
+.header h1 {
+  font-size: 2rem; /* Tamaño de fuente grande */
+  color: #2c3e50; /* Color azul oscuro */
+}
+
+/* Contenedor de las tarjetas con transformaciones */
+.cards {
+  display: flex; /* Layout en fila */
+  gap: 25px; /* Espacio entre tarjetas */
+  justify-content: center; /* Centrar horizontalmente */
+  margin-bottom: 40px; /* Separación inferior */
+  flex-wrap: wrap; /* Permite que las tarjetas bajen a nueva línea en pantallas pequeñas */
+}
+
+/* Estilo general para cada tarjeta */
+.card {
+  background-color: white; /* Fondo blanco */
+  border-radius: 15px; /* Bordes redondeados */
+  padding: 20px; /* Espacio interno */
+  width: 250px; /* Ancho fijo */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra sutil */
+  text-align: center; /* Centrar texto */
+  position: relative; /* Para posicionar tooltip */
+  cursor: pointer; /* Cursor tipo mano para indicar interactividad */
+  transition: transform 0.5s ease, box-shadow 0.3s ease; /* Transición suave para transformaciones y sombra */
+  outline-offset: 4px; /* Espacio para el outline de foco */
+}
+
+/* Estilos del tooltip (mensaje emergente) */
+.tooltip {
+  position: absolute; /* Posición relativa a la tarjeta */
+  bottom: 100%; /* Colocado arriba de la tarjeta */
+  left: 50%; /* Centrado horizontal */
+  transform: translateX(-50%); /* Ajuste exacto de centrado */
+  margin-bottom: 10px; /* Separación del contenedor */
+  background-color: #34495e; /* Fondo azul oscuro */
+  color: white; /* Texto blanco */
+  padding: 6px 10px; /* Espaciado interno */
+  border-radius: 6px; /* Bordes redondeados */
+  font-size: 0.85rem; /* Tamaño pequeño */
+  opacity: 0; /* Invisible por defecto */
+  pointer-events: none; /* No permite interacción */
+  transition: opacity 0.3s ease; /* Transición suave para aparecer */
+  white-space: nowrap; /* Evita que el texto se divida */
+  user-select: none; /* No permite selección de texto */
+  z-index: 10; /* Aparece por encima de otros elementos */
+}
+
+/* Mostrar tooltip cuando la tarjeta está en hover o tiene foco (accesibilidad) */
+.card:hover .tooltip,
+.card:focus .tooltip {
+  opacity: 1; /* Hacer visible */
+  pointer-events: auto; /* Permitir interacción */
+}
+
+/* Animaciones y transformaciones al hacer hover o focus en cada tarjeta */
+
+/* Tarjeta 1: rotación y escalado */
+.card:nth-child(1):hover,
+.card:nth-child(1):focus {
+  transform: rotate(15deg) scale(1.1); /* Girar 15 grados y aumentar tamaño 10% */
+  box-shadow: 0 8px 20px rgba(41, 128, 185, 0.6); /* Sombra más marcada azul */
+}
+
+/* Tarjeta 2: rotación 3D */
+.card:nth-child(2):hover,
+.card:nth-child(2):focus {
+  transform: perspective(600px) rotateY(25deg); /* Perspectiva con giro en eje Y */
+  box-shadow: 0 8px 20px rgba(155, 89, 182, 0.6); /* Sombra violeta */
+}
+
+/* Tarjeta 3: traslación y cambio de color */
+.card:nth-child(3):hover,
+.card:nth-child(3):focus {
+  transform: translateX(20px) translateY(-10px); /* Movimiento diagonal */
+  background-color: #f39c12; /* Cambiar fondo a naranja */
+  color: white; /* Texto blanco */
+  box-shadow: 0 8px 20px rgba(243, 156, 18, 0.6); /* Sombra naranja */
+  transition: background-color 0.5s ease, transform 0.5s ease; /* Transición suave para cambios */
+}
+
+/* Contenedor para las cajas animadas */
+.animated-boxes {
+  display: flex; /* Layout en fila */
+  gap: 40px; /* Espacio entre cajas */
+  justify-content: center; /* Centrar horizontalmente */
+  flex-wrap: wrap; /* Que baje a nueva línea en pantallas pequeñas */
+  margin-bottom: 40px; /* Separación inferior */
+}
+
+/* Estilos base para cada caja */
+.box {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px; /* Bordes redondeados */
+  background-color: #2980b9; /* Azul por defecto */
+  box-shadow: 0 4px 12px rgba(41, 128, 185, 0.5); /* Sombra azul */
+}
+
+/* Animación de rotación continua */
+/* Define la animación que gira de 0 a 360 grados */
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Aplicar animación rotación a la primera caja */
+.box1 {
+  animation: rotate360 4s linear infinite; /* Duración 4 segundos, ciclo infinito */
+}
+
+/* Animación de rebote */
+/* Movimiento vertical para simular rebote */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px); /* Salto hacia arriba */
+  }
+}
+
+/* Aplicar animación rebote a la segunda caja */
+.box2 {
+  background-color: #e67e22; /* Color naranja */
+  animation: bounce 2.5s ease-in-out infinite; /* Duración 2.5 segundos, ciclo infinito */
+}
+
+/* Animación de parpadeo */
+/* Cambios de opacidad para simular parpadeo */
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0.3;
+  }
+}
+
+/* Aplicar animación parpadeo a la tercera caja */
+.box3 {
+  background-color: #27ae60; /* Verde */
+  animation: blink 1.5s ease-in-out infinite; /* Duración 1.5 segundos, ciclo infinito */
+}
+
+/* Estilos para el footer */
+.footer {
+  text-align: center; /* Centrar texto */
+  font-size: 0.9rem; /* Tamaño ligeramente pequeño */
+  color: #555; /* Color gris medio */
+  padding: 10px 0; /* Espacio vertical */
+  border-top: 1px solid #ccc; /* Línea superior fina */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 750px) {
+  /* Cambiar layout de las secciones a columna */
+  .cards, .animated-boxes {
+    flex-direction: column;
+    align-items: center; /* Centrar elementos */
+  }
+
+  /* Ajustar ancho de las tarjetas */
+  .card {
+    width: 80%;
+  }
+
+  /* Ajustar tamaño de las cajas */
+  .box {
+    width: 80px;
+    height: 80px;
+  }
+}

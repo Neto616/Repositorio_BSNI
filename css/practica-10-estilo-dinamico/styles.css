@@ -1,0 +1,159 @@
+/* Reset básico para márgenes, padding y box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables CSS para temas */
+/* @property para animar la variable --bg-color */
+@property --bg-color {
+  syntax: '<color>';
+  initial-value: #ffffff;
+  inherits: false;
+}
+
+/* Variables CSS para tema claro */
+:root {
+  --bg-color: #ffffff; /* color de fondo */
+  --text-color: #333333; /* color texto */
+  --primary-color: #4a90e2; /* color principal */
+  --btn-bg: #4a90e2; /* fondo botón */
+  --btn-text: #ffffff; /* texto botón */
+  --content-bg: #f4f7fa; /* fondo contenido */
+}
+
+/* Variables CSS para tema oscuro */
+body.dark-theme {
+  --bg-color: #121212; /* fondo oscuro */
+  --text-color: #e0e0e0; /* texto claro */
+  --primary-color: #bb86fc; /* color principal */
+  --btn-bg: #bb86fc; /* fondo botón */
+  --btn-text: #121212; /* texto botón */
+  --content-bg: #1e1e1e; /* fondo contenido */
+}
+
+/* Estilos generales del body con transición suave */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  padding: 2rem;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Contenedor principal centrado y responsivo */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: var(--content-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: background-color 0.5s ease;
+}
+
+/* Título principal */
+h1 {
+  font-weight: 700;
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+/* Botón para cambiar tema */
+button#toggleThemeBtn {
+  display: block;
+  margin: 0 auto 2rem auto;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--btn-text);
+  background-color: var(--btn-bg);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(74,144,226,0.4);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto hover para el botón */
+button#toggleThemeBtn:hover {
+  background-color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+/* Sección de contenido */
+.content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* Párrafo con texto */
+.content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  text-align: justify;
+}
+
+/* Imagen responsive */
+.content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover 2D transform en la imagen */
+.content img:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+/* Video responsivo */
+.content video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Efecto hover 3D transform en el video */
+.content video:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  transform: rotateY(5deg);
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 600px) {
+  /* Ajustar padding general */
+  body {
+    padding: 1rem;
+  }
+
+  /* Ajustar contenedor para móviles */
+  .container {
+    padding: 1.5rem;
+  }
+
+  /* Ajustar título principal */
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  /* Ajustar título sección */
+  .content h2 {
+    font-size: 1.4rem;
+  }
+}

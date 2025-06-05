@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabla con Contadores</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <h1>Tabla de Productos</h1>
+
+    <!-- Tabla con encabezado, cuerpo y pie -->
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Producto</th>
+          <th>Categoría</th>
+          <th>Precio</th>
+        </tr>
+      </thead>
+      <tbody class="contador-filas">
+        <!-- Las celdas vacías en la primera columna serán llenadas por el contador -->
+        <tr>
+          <td></td>
+          <td>Monitor LED 24"</td>
+          <td>Electrónica</td>
+          <td>$3,200</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Silla Ergonómica</td>
+          <td>Oficina</td>
+          <td>$1,850</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Teclado Mecánico</td>
+          <td>Electrónica</td>
+          <td>$890</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4">* Precios actualizados junio 2025</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <!-- Paginación ficticia -->
+    <div class="paginacion">
+      <a href="#">«</a>
+      <a href="#" class="activo">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">»</a>
+    </div>
+
+    <!-- Sección con múltiples columnas -->
+    <section class="texto-multicolumna">
+      <h2>Descripción General</h2>
+      <p>
+        Esta tabla muestra algunos productos del catálogo. Las tablas son ideales
+        para mostrar información estructurada. Con CSS, podemos estilizar las
+        celdas, filas, e incluso numerarlas automáticamente usando contadores. Las
+        columnas múltiples permiten leer texto de forma más fluida en diseños
+        impresos o densos en contenido.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

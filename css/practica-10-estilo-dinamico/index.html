@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Práctica 10: Cambio de Estilo Dinámico</title>
+  <!-- Vinculación al archivo CSS externo -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Contenedor principal de la página -->
+  <div class="container">
+    <!-- Título de la página -->
+    <h1>Práctica 10: Cambio de Estilo Dinámico</h1>
+
+    <!-- Botón para alternar entre tema claro y oscuro -->
+    <button id="toggleThemeBtn" aria-label="Cambiar tema">Cambiar tema</button>
+
+    <!-- Contenido de ejemplo para mostrar los efectos del tema -->
+    <section class="content">
+      <h2>Contenido de ejemplo</h2>
+      <p>Este texto cambiará su estilo según el tema seleccionado.</p>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5WeDT496cHEGv059_DNKXfAYdDJWFZvlbAQ&s" alt="Imagen de ejemplo" />
+      <video controls width="400" aria-label="Video de ejemplo">
+        <source src="rickroler.mp4" type="video/mp4" />
+        Tu navegador no soporta la etiqueta de video.
+      </video>
+    </section>
+  </div>
+
+  <!-- Script para cambiar temas dinámicamente -->
+  <script>
+    // Referencia al botón de cambio de tema
+    const toggleBtn = document.getElementById('toggleThemeBtn');
+    // Referencia al elemento <body> para cambiar la clase del tema
+    const body = document.body;
+
+    // Función que alterna entre los temas 'light' y 'dark'
+    function toggleTheme() {
+      if (body.classList.contains('dark-theme')) {
+        // Si está en tema oscuro, cambia a claro
+        body.classList.remove('dark-theme');
+        body.classList.add('light-theme');
+      } else {
+        // Si está en tema claro (o sin clase), cambia a oscuro
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+      }
+    }
+
+    // Evento click para el botón
+    toggleBtn.addEventListener('click', toggleTheme);
+
+    // Inicializar con tema claro por defecto
+    body.classList.add('light-theme');
+  </script>
+</body>
+</html>
